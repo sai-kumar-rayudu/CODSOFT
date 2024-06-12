@@ -14,7 +14,7 @@ public class ATMInterface extends JFrame implements ActionListener {
     private double balance = 1000.00; // Initial balance
 
     public ATMInterface() {
-        //creating User interface
+        //creating login frame elements
         label1 = new JLabel("Account:");
         textField1 = new JTextField(10);
         label2 = new JLabel("PIN:");
@@ -51,10 +51,10 @@ public class ATMInterface extends JFrame implements ActionListener {
             if (id.equals("1234")&&pin.equals("1234")) { // simple user and pin check
                 showOperations();
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid PIN. Try again.");
+                JOptionPane.showMessageDialog(this, "Invalid PIN! Try again.");
             }
         } else if (e.getSource() == checkBalanceButton) {
-            JOptionPane.showMessageDialog(this, "Your balance is: $" + balance);
+            JOptionPane.showMessageDialog(this, "Your balance is: " + balance);
         } else if (e.getSource() == withdrawButton) {
             withdraw();
         } else if (e.getSource() == depositButton) {
@@ -96,7 +96,7 @@ public class ATMInterface extends JFrame implements ActionListener {
     }
 
     private void deposit(){
-        String Stramount = JOptionPane.showInputDialog(this,"Enter the Withdra amount: ");
+        String Stramount = JOptionPane.showInputDialog(this,"Enter the deposit amount: ");
         double amount = Double.parseDouble(Stramount);
         if(amount>=0){
             balance += amount;
